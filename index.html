@@ -845,9 +845,15 @@ footer{margin-top:70px;border-top:1px solid var(--line);position:relative;z-inde
     f.setAttribute('aria-hidden', 'true');
     f.setAttribute('title', '页面预览');
     f.referrerPolicy = 'no-referrer';
-    f.addEventListener('load', function () {
-      setTimeout(function () { cover.classList.add('thumb-on'); }, 90);
-    });
+    var revealed = false;
+    function reveal() {
+      if (revealed) return;
+      revealed = true;
+      cover.classList.add('thumb-on');
+    }
+    f.addEventListener('load', function () { setTimeout(reveal, 90); });
+    /* 兜底：子页面若引用了慢速外部资源（字体等），load 可能被拖住，届时也先显示出来 */
+    setTimeout(reveal, 2600);
     cover.appendChild(f);
     f.style.width = THUMB_W + 'px';
     f.style.height = THUMB_H + 'px';
