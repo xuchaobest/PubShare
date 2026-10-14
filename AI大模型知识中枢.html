@@ -202,11 +202,9 @@ body::after{
    ============================================================ */
 .organism-grid{
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(460px,620px);
-  gap:20px;
-  align-items:stretch;
+  grid-template-columns:minmax(0,1fr) 440px;
+  gap:26px;align-items:start;
 }
-.organism-left{min-width:0}
 .stage{
   position:relative;
   background:radial-gradient(ellipse at 50% 45%,rgba(20,32,56,.62) 0%,rgba(9,14,26,.28) 62%,transparent 100%);
@@ -248,33 +246,23 @@ body::after{
   transform-box:fill-box;transform-origin:center}
 .node:hover .disc,.node:focus-visible .disc{transform:scale(1.075)}
 .node.active .disc{transform:scale(1.11)}
-.node .num{font-size:22px;font-weight:800;fill:rgba(230,237,247,.42);
+.node .num{font-size:20px;font-weight:800;fill:rgba(230,237,247,.42);
   pointer-events:none;font-variant-numeric:tabular-nums}
-.node .nm{font-size:23px;font-weight:750;fill:#eaf2ff;pointer-events:none}
-.node .node-desc{font-size:12px;fill:var(--muted);pointer-events:none;line-height:1.4}
+.node .nm{font-size:21px;font-weight:750;fill:#eaf2ff;pointer-events:none}
 .node.active .num{fill:rgba(255,255,255,.75)}
 .node.active .nm{fill:#fff}
-.node.active .node-desc{fill:rgba(255,255,255,.65)}
 .core-pulse{transform-box:fill-box;transform-origin:center;
   animation:corep 4.2s ease-in-out infinite}
 @keyframes corep{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.09);opacity:.85}}
 
 .panel-detail{
-  position:relative;
-  align-self:stretch;
-  min-height:0;          /* 新增：允许在 Grid 中收缩，配合 overflow 滚动 */
-  overflow-y:auto;
+  position:sticky;top:22px;max-height:calc(100vh - 44px);overflow-y:auto;
+  background:var(--card);border:1px solid var(--line);border-radius:20px;
+  padding:26px 24px 30px;-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px);
   scrollbar-width:thin;
-  background:var(--card);
-  border:1px solid var(--line);
-  border-radius:20px;
-  padding:24px 22px 28px;
-  -webkit-backdrop-filter:blur(16px);
-  backdrop-filter:blur(16px);
 }
 .panel-detail::-webkit-scrollbar{width:6px}
-.panel-detail::-webkit-scrollbar-track{background:transparent}
-.panel-detail::-webkit-scrollbar-thumb{background:rgba(99,140,200,.3);border-radius:3px;border:0}
+.panel-detail::-webkit-scrollbar-thumb{background:rgba(99,140,200,.3);border-radius:3px}
 .p-role{display:inline-block;font-size:12px;letter-spacing:.08em;
   padding:4px 12px;border-radius:999px;border:1px solid currentColor;
   opacity:.92;margin-bottom:14px}
@@ -352,7 +340,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   box-shadow:0 5px 18px rgba(0,0,0,.4)}
 
 .tree-stage{
-  margin-top:18px;
+  margin-top:22px;
   background:radial-gradient(ellipse at 50% 45%,rgba(20,32,56,.62) 0%,rgba(9,14,26,.28) 62%,transparent 100%);
   border:1px solid var(--line);border-radius:20px;padding:8px;overflow:hidden;
   position:relative;
@@ -370,7 +358,6 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 .tree-head .hint{font-size:11.5px;color:var(--muted-dim)}
 #treeSvg{width:100%;height:auto;display:block;position:relative;z-index:1}
 
-/* 图例区：全宽 */
 .legend-area{
   margin-top:22px;
   background:var(--card);border:1px solid var(--line);border-radius:20px;
@@ -381,7 +368,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 .legend-area h2 em{font-style:normal;font-size:11.5px;font-weight:600;
   letter-spacing:.14em;text-transform:uppercase;color:var(--muted-dim)}
 .legend-sub{font-size:12.5px;color:var(--muted-dim);margin:0 0 20px}
-.legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+.legend-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:14px;margin-bottom:24px}
 .legend-card{
   background:rgba(255,255,255,.026);border:1px solid var(--line);
@@ -399,7 +386,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 .cross-wrap{border-top:1px dashed var(--line);padding-top:22px}
 .cross-wrap h3{font-size:13px;font-weight:750;color:var(--text);margin:0 0 6px}
 .cross-wrap .cross-sub{font-size:12px;color:var(--muted-dim);margin:0 0 14px}
-.cross-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+.cross-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));
   gap:11px}
 .cross-item{
   background:rgba(255,255,255,.026);border:1px solid var(--line);
@@ -871,13 +858,12 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 .k-card.c3 h5{color:#d3b6ff}
 
 /* ============================================================
-   03 · 模型内部（整体紧凑化）
+   03 · 模型内部
    ============================================================ */
-#internals .sec-head{margin-bottom:16px}
 .internals-grid{
   display:grid;
   grid-template-columns:minmax(0,1.42fr) minmax(0,1fr);
-  gap:14px;align-items:start;margin-top:14px;
+  gap:18px;align-items:start;margin-top:20px;
 }
 
 .embed-pipeline{
@@ -886,8 +872,8 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   background:
     radial-gradient(ellipse at 50% 0%,rgba(94,231,255,.08),transparent 60%),
     linear-gradient(180deg,rgba(94,231,255,.035),rgba(107,140,255,.01));
-  padding:14px 16px 15px;
-  margin-bottom:14px;
+  padding:16px 18px 18px;
+  margin-bottom:16px;
   overflow:hidden;
   position:relative;
 }
@@ -899,7 +885,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 .pipe-title{
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
   font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:rgba(94,231,255,.78);font-weight:800;margin-bottom:11px;
+  color:rgba(94,231,255,.78);font-weight:800;margin-bottom:14px;
 }
 .pipe-title .pipe-case{
   margin-left:auto;font-size:11px;letter-spacing:.02em;
@@ -921,8 +907,8 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   border-radius:12px;
   border:1px solid rgba(255,255,255,.08);
   background:rgba(3,6,12,.5);
-  padding:10px 12px 11px;
-  min-height:102px;
+  padding:11px 13px 12px;
+  min-height:118px;
   transition:border-color .45s var(--ease),
              background .45s var(--ease),
              box-shadow .45s var(--ease),
@@ -940,7 +926,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 }
 .ps-label{
   font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--muted-dim);font-weight:800;margin-bottom:8px;
+  color:var(--muted-dim);font-weight:800;margin-bottom:9px;
   display:flex;align-items:center;gap:7px;
 }
 .ps-label i{
@@ -994,10 +980,10 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   transition:height .55s var(--ease);
 }
 .ps-note{
-  margin-top:7px;font-size:10.5px;color:var(--muted-dim);
-  line-height:1.5;
+  margin-top:9px;font-size:10.5px;color:var(--muted-dim);
+  line-height:1.55;
   border-top:1px dashed rgba(120,200,255,.14);
-  padding-top:6px;
+  padding-top:8px;
 }
 .pipe-dim{
   display:inline-block;padding:1px 6px;border-radius:4px;
@@ -1006,7 +992,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 }
 
 .building-wrap{
-  border-radius:16px;overflow:hidden;
+  border-radius:18px;overflow:hidden;
   border:1px solid rgba(94,231,255,.16);
   background:
     radial-gradient(ellipse at 50% 100%,rgba(94,231,255,.09),transparent 62%),
@@ -1014,7 +1000,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 }
 .building-head{
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  padding:10px 14px;
+  padding:12px 16px;
   border-bottom:1px solid rgba(94,231,255,.12);
   background:rgba(6,10,20,.5);
 }
@@ -1023,12 +1009,12 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   white-space:nowrap;
 }
 .building{
-  display:flex;flex-direction:column-reverse;gap:5px;
-  padding:12px 12px;
+  display:flex;flex-direction:column-reverse;gap:7px;
+  padding:16px 14px;
   position:relative;
 }
 .building::before{
-  content:"";position:absolute;left:20px;top:12px;bottom:12px;width:1px;
+  content:"";position:absolute;left:22px;top:16px;bottom:16px;width:1px;
   background:linear-gradient(180deg,transparent,rgba(94,231,255,.28),transparent);
   pointer-events:none;
 }
@@ -1036,10 +1022,10 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 .floor{
   position:relative;
   display:grid;
-  grid-template-columns:46px minmax(76px,104px) 36px minmax(0,1fr);
-  gap:9px;align-items:center;
-  padding:7px 11px;
-  border-radius:11px;
+  grid-template-columns:50px 92px 40px minmax(0,1fr);
+  gap:10px;align-items:center;
+  padding:9px 13px;
+  border-radius:12px;
   border:1px solid rgba(255,255,255,.07);
   background:linear-gradient(180deg,rgba(255,255,255,.026),rgba(255,255,255,.006));
   transition:border-color .45s var(--ease),
@@ -1074,8 +1060,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 }
 .fl-desc{
   font-size:11.5px;color:var(--muted-dim);
-  white-space:normal;overflow:visible;
-  line-height:1.45;word-break:break-all;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
   transition:color .45s var(--ease);
 }
 .floor.on .fl-desc{color:#bff2ff;font-weight:600}
@@ -1084,14 +1069,14 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 .fl-router{
   position:relative;
   display:flex;align-items:center;justify-content:center;
-  width:34px;height:28px;
-  border-radius:8px;
+  width:36px;height:30px;
+  border-radius:9px;
   border:1px solid rgba(255,209,102,.22);
   background:rgba(255,209,102,.05);
   transition:all .45s var(--ease);
 }
 .fl-router .rt-icon{
-  font-size:13px;line-height:1;
+  font-size:14px;line-height:1;
   filter:grayscale(.5) brightness(.8);
   transition:filter .45s var(--ease),transform .45s var(--pop);
 }
@@ -1125,13 +1110,13 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   min-width:0;flex-wrap:wrap;
 }
 .exp{
-  flex:0 0 auto;width:36px;text-align:center;
-  font-size:9.5px;line-height:1.5;
-  padding:2px 2px;border-radius:6px;
+  flex:0 0 auto;width:38px;text-align:center;
+  font-size:10px;line-height:1.5;
+  padding:3px 0;border-radius:6px;
   border:1px solid rgba(255,255,255,.08);
   background:rgba(255,255,255,.03);
   color:rgba(138,160,199,.7);
-  white-space:normal;word-break:break-all;position:relative;
+  white-space:nowrap;position:relative;
   transition:all .45s var(--pop);
 }
 .exp.hot{
@@ -1149,10 +1134,10 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 }
 .exp.hot .exp-score{opacity:1}
 
-.internals-side{display:flex;flex-direction:column;gap:12px}
+.internals-side{display:flex;flex-direction:column;gap:14px}
 .vec-card{
   position:relative;overflow:hidden;
-  border-radius:16px;padding:13px 15px;
+  border-radius:16px;padding:15px 17px;
   border:1px solid rgba(94,231,255,.22);
   background:linear-gradient(180deg,rgba(94,231,255,.07),rgba(107,140,255,.02));
 }
@@ -1164,7 +1149,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 .vec-card .io-label{color:var(--cyan)}
 .vec-bars{
   display:flex;align-items:flex-end;gap:3px;
-  height:84px;padding:0 3px;margin-top:10px;
+  height:100px;padding:0 3px;margin-top:12px;
   border-radius:10px;
   background:rgba(3,6,12,.5);
   border:1px solid rgba(255,255,255,.05);
@@ -1178,16 +1163,16 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 }
 .vec-meta{
   display:flex;justify-content:space-between;align-items:center;gap:10px;
-  margin-top:9px;font-size:11px;color:var(--muted-dim);
+  margin-top:11px;font-size:11px;color:var(--muted-dim);
   font-variant-numeric:tabular-nums;
 }
 .vec-meta span:last-child{color:var(--cyan);font-weight:600}
 
 .mstat-card{
-  border-radius:16px;padding:13px 15px;
+  border-radius:16px;padding:15px 17px;
   border:1px solid rgba(255,255,255,.08);
   background:rgba(255,255,255,.024);
-  display:flex;flex-direction:column;gap:9px;
+  display:flex;flex-direction:column;gap:11px;
 }
 .mstat-row{display:flex;align-items:flex-start;gap:12px}
 .mstat-k{
@@ -1201,7 +1186,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 .mstat-v.hot{color:var(--cyan);text-shadow:0 0 14px rgba(94,231,255,.4)}
 
 .router-card{
-  border-radius:16px;padding:12px 14px 13px;
+  border-radius:16px;padding:14px 16px 15px;
   border:1px solid rgba(255,209,102,.28);
   background:
     radial-gradient(ellipse at 100% 0%,rgba(255,209,102,.09),transparent 62%),
@@ -1214,7 +1199,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   animation:scanX 4.4s linear infinite;opacity:.65;
 }
 .router-head{
-  display:flex;align-items:center;gap:9px;margin-bottom:10px;
+  display:flex;align-items:center;gap:9px;margin-bottom:12px;
 }
 .router-avatar{
   width:26px;height:26px;border-radius:8px;flex:0 0 auto;
@@ -1236,12 +1221,12 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   letter-spacing:.1em;text-transform:uppercase;font-weight:700;
 }
 .router-stage{
-  font-size:11.5px;color:var(--muted);line-height:1.6;
-  margin-bottom:9px;
-  min-height:30px;
+  font-size:11.5px;color:var(--muted);line-height:1.65;
+  margin-bottom:11px;
+  min-height:34px;
 }
 .router-stage b{color:var(--amber);font-weight:800}
-.router-list{display:flex;flex-direction:column;gap:5px}
+.router-list{display:flex;flex-direction:column;gap:6px}
 .router-row{
   display:grid;grid-template-columns:44px minmax(0,1fr) 40px;
   gap:8px;align-items:center;
@@ -1272,19 +1257,19 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 }
 .router-row.pick .rr-score{color:var(--amber)}
 .router-foot{
-  margin-top:10px;padding-top:9px;
+  margin-top:11px;padding-top:10px;
   border-top:1px dashed rgba(255,209,102,.22);
-  font-size:10.5px;color:var(--muted-dim);line-height:1.55;
+  font-size:10.5px;color:var(--muted-dim);line-height:1.6;
 }
 .router-foot b{color:var(--amber)}
 
 .moemini{
-  border-radius:16px;padding:12px 15px;
+  border-radius:16px;padding:14px 17px;
   border:1px dashed rgba(176,123,255,.32);
   background:rgba(176,123,255,.05);
-  display:flex;flex-direction:column;gap:8px;
+  display:flex;flex-direction:column;gap:10px;
 }
-.moemini-row{display:flex;gap:10px;align-items:baseline;font-size:12px;line-height:1.6}
+.moemini-row{display:flex;gap:10px;align-items:baseline;font-size:12px;line-height:1.62}
 .mm-k{
   flex:0 0 66px;font-size:11px;font-weight:800;
   color:#d3b6ff;letter-spacing:.02em;
@@ -1292,18 +1277,18 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 .mm-v{flex:1;color:var(--muted)}
 
 /* ============================================================
-   输出与传输区域
+   输出与传输区域（新增）
    ============================================================ */
 .output-zone{
   display:none;
-  margin-top:14px;
+  margin-top:18px;
   border-radius:18px;
   border:1px solid rgba(124,255,178,.28);
   background:
     radial-gradient(ellipse at 0% 0%,rgba(124,255,178,.09),transparent 62%),
     radial-gradient(ellipse at 100% 100%,rgba(94,231,255,.07),transparent 62%),
     linear-gradient(180deg,rgba(124,255,178,.045),rgba(94,231,255,.015));
-  padding:16px 18px 18px;
+  padding:18px 20px 20px;
   position:relative;overflow:hidden;
 }
 .output-zone.show{
@@ -1317,7 +1302,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 }
 .oz-head{
   display:flex;align-items:center;gap:10px;flex-wrap:wrap;
-  margin-bottom:14px;
+  margin-bottom:16px;
 }
 .oz-badge{
   font-size:10px;font-weight:800;letter-spacing:.18em;
@@ -1391,6 +1376,19 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 .oz-code .f{color:#8fd0ff}
 .oz-code .n{color:#ffd166}
 
+.oz-sse{
+  margin:0;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
+  font-size:11px;
+  line-height:1.8;
+  color:#a8e6ff;
+  white-space:pre;
+  overflow-x:auto;
+  padding:12px 14px;
+  border-radius:11px;
+  background:rgba(3,6,12,.65);
+  border:1px solid rgba(94,231,255,.14);
+}
 .oz-typing{
   font-family:ui-monospace,SFMono-Regular,Menlo,monospace;
   font-size:12.5px;
@@ -1551,11 +1549,9 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 /* ============================================================
    Responsive
    ============================================================ */
-@media (max-width:1280px){
-  .organism-grid{grid-template-columns:1fr;gap:22px}
-  .panel-detail{position:static;max-height:none;overflow:visible;align-self:auto}
-}
 @media (max-width:1180px){
+  .organism-grid{grid-template-columns:1fr;gap:22px}
+  .panel-detail{position:static;max-height:none}
   .demo-grid{grid-template-columns:1fr}
   .demo-side{flex-direction:row}
   .knowledge-grid{grid-template-columns:1fr}
@@ -1575,15 +1571,14 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   .oz-grid{grid-template-columns:1fr}
 }
 @media (max-width:860px){
-  .floor{grid-template-columns:46px minmax(70px,100px) 36px minmax(0,1fr);gap:9px;padding:8px 11px}
-  .fl-desc{font-size:11px}
+  .floor{grid-template-columns:46px 80px 36px minmax(0,1fr);gap:9px;padding:8px 11px}
   .exp{width:34px;font-size:9.5px}
   .fl-router{width:32px;height:28px}
   .fl-router .rt-icon{font-size:12px}
 }
 @media (max-width:640px){
-  .floor{grid-template-columns:44px minmax(56px,72px) 32px minmax(0,1fr);gap:7px}
-  .fl-desc{font-size:10px;line-height:1.35}
+  .floor{grid-template-columns:44px 36px minmax(0,1fr);gap:8px}
+  .fl-desc{display:none}
   .building{padding:12px 10px}
   .building::before{left:18px}
   .building-tip{display:none}
@@ -1598,7 +1593,6 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   .stage-canvas{min-height:300px;padding:18px 14px}
   .panel-detail{padding:20px 17px 24px;border-radius:16px}
   .p-title{font-size:22px}
-  .node .node-desc{display:none}
   .progress-track{grid-template-columns:repeat(4,1fr);gap:8px;row-gap:14px}
   .pnode:not(:last-child)::after{display:none}
   .pdot{width:24px;height:24px;font-size:10px}
@@ -1609,6 +1603,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   .stats{gap:8px}
   .stat{padding:10px 15px;min-width:98px}
   .stat b{font-size:20px}
+  /* 紧凑度：小屏整体收紧留白，一屏看到更多内容 */
   .panel{padding:18px 14px;margin-bottom:18px}
   .sec-head{margin-bottom:15px}
   .sec-title{font-size:18px;margin:5px 0 6px}
@@ -1625,8 +1620,8 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   .jump-bar{padding:12px 14px;margin-top:14px}
   .jump-bar .jb-text{font-size:12px;line-height:1.65;min-width:200px}
   .embed-pipeline{padding:13px 13px 14px;margin-bottom:12px}
-  .internals-grid{gap:12px;margin-top:12px}
-  .building{padding:12px 10px;gap:5px}
+  .internals-grid{gap:12px;margin-top:14px}
+  .building{padding:12px 10px;gap:6px}
   .floor{padding:7px 10px}
   .legend-area{padding:16px 14px 18px}
   .legend-grid{gap:10px;margin-bottom:16px}
@@ -1645,7 +1640,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   .trap summary{padding:11px 14px;font-size:12.5px}
   .trap-body{padding:0 14px 13px;font-size:12px;line-height:1.75}
   .stage-canvas{min-height:260px;padding:14px 10px}
-  .tree-stage{margin-top:14px}
+  .tree-stage{margin-top:16px}
   .output-zone{padding:14px 14px 16px}
   .oz-grid{gap:12px}
   .vec-card,.mstat-card,.router-card,.moemini{padding:12px 14px}
@@ -1669,8 +1664,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   .stage-legend{gap:6px 14px;padding:8px 10px 10px}
   .stage-legend span{font-size:10.5px}
   .exp{width:30px;font-size:9px}
-  .floor{grid-template-columns:38px minmax(48px,64px) 28px minmax(0,1fr);gap:5px;padding:5px 7px}
-  .fl-desc{font-size:9.5px;line-height:1.3}
+  .floor{grid-template-columns:40px 32px minmax(0,1fr);gap:6px;padding:6px 8px}
   .fl-idx{font-size:10px}
   .fl-router{width:28px;height:26px}
   .pipe-step{padding:9px 10px 10px;min-height:0}
@@ -1733,10 +1727,10 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
     </div>
 
     <div class="organism-grid">
-      <!-- 左列：生命体 + 知识脉络体 -->
-      <div class="organism-left">
+      <!-- 主生命体 -->
+      <div>
         <section class="stage">
-          <svg id="organism" viewBox="0 0 1000 780" preserveAspectRatio="xMidYMid meet"
+          <svg id="organism" viewBox="0 0 1000 800" preserveAspectRatio="xMidYMid meet"
                role="img" aria-label="大模型知识生命体：核心与八个知识系统">
             <defs>
               <radialGradient id="coreGrad" cx="50%" cy="42%">
@@ -1750,131 +1744,123 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
               </radialGradient>
             </defs>
 
-            <circle cx="500" cy="390" r="278" fill="none"
-                    stroke="rgba(99,140,200,.10)" stroke-width="1" stroke-dasharray="2 12"/>
+            <circle cx="500" cy="400" r="278" fill="none"
+                    stroke="rgba(99,140,200,.14)" stroke-width="1" stroke-dasharray="2 12"/>
 
             <path class="ring-arc" data-a="arch" data-b="train"
-                  d="M 500 160 A 240 240 0 0 1 670 220" stroke="#38bdf8" opacity=".26"/>
+                  d="M 500 122 A 278 278 0 0 1 696.6 203.4" stroke="#38bdf8" opacity=".26"/>
             <path class="ring-arc" data-a="train" data-b="align"
-                  d="M 670 220 A 240 240 0 0 1 740 390" stroke="#818cf8" opacity=".26"/>
+                  d="M 696.6 203.4 A 278 278 0 0 1 778 400" stroke="#818cf8" opacity=".26"/>
             <path class="ring-arc" data-a="align" data-b="infer"
-                  d="M 740 390 A 240 240 0 0 1 670 560" stroke="#f472b6" opacity=".26"/>
+                  d="M 778 400 A 278 278 0 0 1 696.6 596.6" stroke="#f472b6" opacity=".26"/>
             <path class="ring-arc" data-a="infer" data-b="rag"
-                  d="M 670 560 A 240 240 0 0 1 500 620" stroke="#fbbf24" opacity=".26"/>
+                  d="M 696.6 596.6 A 278 278 0 0 1 500 678" stroke="#fbbf24" opacity=".26"/>
             <path class="ring-arc" data-a="rag" data-b="agent"
-                  d="M 500 620 A 240 240 0 0 1 330 560" stroke="#34d399" opacity=".26"/>
+                  d="M 500 678 A 278 278 0 0 1 303.4 596.6" stroke="#34d399" opacity=".26"/>
             <path class="ring-arc" data-a="agent" data-b="mm"
-                  d="M 330 560 A 240 240 0 0 1 260 390" stroke="#22d3ee" opacity=".26"/>
+                  d="M 303.4 596.6 A 278 278 0 0 1 222 400" stroke="#22d3ee" opacity=".26"/>
             <path class="ring-arc" data-a="mm" data-b="eval"
-                  d="M 260 390 A 240 240 0 0 1 330 220" stroke="#a78bfa" opacity=".26"/>
+                  d="M 222 400 A 278 278 0 0 1 303.4 203.4" stroke="#a78bfa" opacity=".26"/>
             <path class="ring-arc" data-a="eval" data-b="arch"
-                  d="M 330 220 A 240 240 0 0 1 500 160" stroke="#fb7185" opacity=".26"/>
+                  d="M 303.4 203.4 A 278 278 0 0 1 500 122" stroke="#fb7185" opacity=".26"/>
 
-            <line class="conn" data-id="arch" x1="500" y1="306" x2="500" y2="232" stroke="#38bdf8"/>
-            <line class="conn" data-id="train" x1="559" y1="331" x2="620" y2="270" stroke="#818cf8"/>
-            <line class="conn" data-id="align" x1="584" y1="390" x2="668" y2="390" stroke="#f472b6"/>
-            <line class="conn" data-id="infer" x1="559" y1="449" x2="620" y2="510" stroke="#fbbf24"/>
-            <line class="conn" data-id="rag" x1="500" y1="474" x2="500" y2="548" stroke="#34d399"/>
-            <line class="conn" data-id="agent" x1="441" y1="449" x2="380" y2="510" stroke="#22d3ee"/>
-            <line class="conn" data-id="mm" x1="416" y1="390" x2="332" y2="390" stroke="#a78bfa"/>
-            <line class="conn" data-id="eval" x1="441" y1="331" x2="380" y2="270" stroke="#fb7185"/>
+            <line class="conn" data-id="arch" x1="500" y1="316" x2="500" y2="194" stroke="#38bdf8"/>
+            <line class="conn" data-id="train" x1="559.4" y1="340.6" x2="645.7" y2="254.4" stroke="#818cf8"/>
+            <line class="conn" data-id="align" x1="584" y1="400" x2="706" y2="400" stroke="#f472b6"/>
+            <line class="conn" data-id="infer" x1="559.4" y1="459.4" x2="645.7" y2="545.6" stroke="#fbbf24"/>
+            <line class="conn" data-id="rag" x1="500" y1="484" x2="500" y2="606" stroke="#34d399"/>
+            <line class="conn" data-id="agent" x1="440.6" y1="459.4" x2="354.3" y2="545.6" stroke="#22d3ee"/>
+            <line class="conn" data-id="mm" x1="416" y1="400" x2="294" y2="400" stroke="#a78bfa"/>
+            <line class="conn" data-id="eval" x1="440.6" y1="340.6" x2="354.3" y2="254.4" stroke="#fb7185"/>
 
-            <circle class="core-pulse" cx="500" cy="390" r="120" fill="url(#coreGrad)"/>
-            <circle cx="500" cy="390" r="70" fill="url(#coreInner)"
+            <circle class="core-pulse" cx="500" cy="400" r="142" fill="url(#coreGrad)"/>
+            <circle cx="500" cy="400" r="80" fill="url(#coreInner)"
                     stroke="rgba(125,211,252,.55)" stroke-width="1.6"/>
-            <circle cx="500" cy="390" r="80" fill="none"
+            <circle cx="500" cy="400" r="91" fill="none"
                     stroke="rgba(125,211,252,.18)" stroke-width="1" stroke-dasharray="3 7"/>
-            <text x="500" y="382" text-anchor="middle" dominant-baseline="central"
-                  font-size="28" font-weight="850" fill="#7dd3fc" letter-spacing="1">LLM</text>
-            <text x="500" y="408" text-anchor="middle" dominant-baseline="central"
-                  font-size="12" fill="#5f7391" letter-spacing="3">知识核心</text>
+            <text x="500" y="391" text-anchor="middle" dominant-baseline="central"
+                  font-size="30" font-weight="850" fill="#7dd3fc" letter-spacing="1">LLM</text>
+            <text x="500" y="420" text-anchor="middle" dominant-baseline="central"
+                  font-size="13" fill="#5f7391" letter-spacing="3">知识核心</text>
 
             <g class="node active" data-id="arch" tabindex="0" role="button" aria-label="架构骨架">
-              <circle class="halo" cx="500" cy="160" r="72" stroke="#38bdf8"/>
-              <circle class="disc" cx="500" cy="160" r="72" fill="rgba(11,18,32,.94)"
+              <circle class="halo" cx="500" cy="122" r="72" stroke="#38bdf8"/>
+              <circle class="disc" cx="500" cy="122" r="72" fill="rgba(11,18,32,.94)"
                       stroke="#38bdf8" stroke-width="2"
                       style="filter:drop-shadow(0 0 16px rgba(56,189,248,.3))"/>
-              <circle cx="500" cy="160" r="64" fill="none" stroke="rgba(56,189,248,.22)" stroke-width="1"/>
-              <text class="num" x="500" y="143" text-anchor="middle" dominant-baseline="central">01</text>
-              <text class="nm" x="500" y="163" text-anchor="middle" dominant-baseline="central">架构骨架</text>
-              <text class="node-desc" x="500" y="182" text-anchor="middle" dominant-baseline="central">模型骨骼 · 决定能力上限</text>
+              <circle cx="500" cy="122" r="64" fill="none" stroke="rgba(56,189,248,.22)" stroke-width="1"/>
+              <text class="num" x="500" y="107" text-anchor="middle" dominant-baseline="central">01</text>
+              <text class="nm" x="500" y="139" text-anchor="middle" dominant-baseline="central">架构骨架</text>
             </g>
 
             <g class="node" data-id="train" tabindex="0" role="button" aria-label="训练微调">
-              <circle class="halo" cx="670" cy="220" r="72" stroke="#818cf8"/>
-              <circle class="disc" cx="670" cy="220" r="72" fill="rgba(11,18,32,.94)"
+              <circle class="halo" cx="696.6" cy="203.4" r="72" stroke="#818cf8"/>
+              <circle class="disc" cx="696.6" cy="203.4" r="72" fill="rgba(11,18,32,.94)"
                       stroke="#818cf8" stroke-width="2"
                       style="filter:drop-shadow(0 0 16px rgba(129,140,248,.3))"/>
-              <circle cx="670" cy="220" r="64" fill="none" stroke="rgba(129,140,248,.22)" stroke-width="1"/>
-              <text class="num" x="670" y="203" text-anchor="middle" dominant-baseline="central">02</text>
-              <text class="nm" x="670" y="223" text-anchor="middle" dominant-baseline="central">训练微调</text>
-              <text class="node-desc" x="670" y="242" text-anchor="middle" dominant-baseline="central">数据到权重的血脉</text>
+              <circle cx="696.6" cy="203.4" r="64" fill="none" stroke="rgba(129,140,248,.22)" stroke-width="1"/>
+              <text class="num" x="696.6" y="188.4" text-anchor="middle" dominant-baseline="central">02</text>
+              <text class="nm" x="696.6" y="220.4" text-anchor="middle" dominant-baseline="central">训练微调</text>
             </g>
 
             <g class="node" data-id="align" tabindex="0" role="button" aria-label="对齐增强">
-              <circle class="halo" cx="740" cy="390" r="72" stroke="#f472b6"/>
-              <circle class="disc" cx="740" cy="390" r="72" fill="rgba(11,18,32,.94)"
+              <circle class="halo" cx="778" cy="400" r="72" stroke="#f472b6"/>
+              <circle class="disc" cx="778" cy="400" r="72" fill="rgba(11,18,32,.94)"
                       stroke="#f472b6" stroke-width="2"
                       style="filter:drop-shadow(0 0 16px rgba(244,114,182,.3))"/>
-              <circle cx="740" cy="390" r="64" fill="none" stroke="rgba(244,114,182,.22)" stroke-width="1"/>
-              <text class="num" x="740" y="373" text-anchor="middle" dominant-baseline="central">03</text>
-              <text class="nm" x="740" y="393" text-anchor="middle" dominant-baseline="central">对齐增强</text>
-              <text class="node-desc" x="740" y="412" text-anchor="middle" dominant-baseline="central">行为与偏好的意志</text>
+              <circle cx="778" cy="400" r="64" fill="none" stroke="rgba(244,114,182,.22)" stroke-width="1"/>
+              <text class="num" x="778" y="385" text-anchor="middle" dominant-baseline="central">03</text>
+              <text class="nm" x="778" y="417" text-anchor="middle" dominant-baseline="central">对齐增强</text>
             </g>
 
             <g class="node" data-id="infer" tabindex="0" role="button" aria-label="推理部署">
-              <circle class="halo" cx="670" cy="560" r="72" stroke="#fbbf24"/>
-              <circle class="disc" cx="670" cy="560" r="72" fill="rgba(11,18,32,.94)"
+              <circle class="halo" cx="696.6" cy="596.6" r="72" stroke="#fbbf24"/>
+              <circle class="disc" cx="696.6" cy="596.6" r="72" fill="rgba(11,18,32,.94)"
                       stroke="#fbbf24" stroke-width="2"
                       style="filter:drop-shadow(0 0 16px rgba(251,191,36,.3))"/>
-              <circle cx="670" cy="560" r="64" fill="none" stroke="rgba(251,191,36,.22)" stroke-width="1"/>
-              <text class="num" x="670" y="543" text-anchor="middle" dominant-baseline="central">04</text>
-              <text class="nm" x="670" y="563" text-anchor="middle" dominant-baseline="central">推理部署</text>
-              <text class="node-desc" x="670" y="582" text-anchor="middle" dominant-baseline="central">便宜稳定地运行</text>
+              <circle cx="696.6" cy="596.6" r="64" fill="none" stroke="rgba(251,191,36,.22)" stroke-width="1"/>
+              <text class="num" x="696.6" y="581.6" text-anchor="middle" dominant-baseline="central">04</text>
+              <text class="nm" x="696.6" y="613.6" text-anchor="middle" dominant-baseline="central">推理部署</text>
             </g>
 
             <g class="node" data-id="rag" tabindex="0" role="button" aria-label="检索增强">
-              <circle class="halo" cx="500" cy="620" r="72" stroke="#34d399"/>
-              <circle class="disc" cx="500" cy="620" r="72" fill="rgba(11,18,32,.94)"
+              <circle class="halo" cx="500" cy="678" r="72" stroke="#34d399"/>
+              <circle class="disc" cx="500" cy="678" r="72" fill="rgba(11,18,32,.94)"
                       stroke="#34d399" stroke-width="2"
                       style="filter:drop-shadow(0 0 16px rgba(52,211,153,.3))"/>
-              <circle cx="500" cy="620" r="64" fill="none" stroke="rgba(52,211,153,.22)" stroke-width="1"/>
-              <text class="num" x="500" y="603" text-anchor="middle" dominant-baseline="central">05</text>
-              <text class="nm" x="500" y="623" text-anchor="middle" dominant-baseline="central">检索增强</text>
-              <text class="node-desc" x="500" y="642" text-anchor="middle" dominant-baseline="central">外部知识的记忆</text>
+              <circle cx="500" cy="678" r="64" fill="none" stroke="rgba(52,211,153,.22)" stroke-width="1"/>
+              <text class="num" x="500" y="663" text-anchor="middle" dominant-baseline="central">05</text>
+              <text class="nm" x="500" y="695" text-anchor="middle" dominant-baseline="central">检索增强</text>
             </g>
 
             <g class="node" data-id="agent" tabindex="0" role="button" aria-label="智能体">
-              <circle class="halo" cx="330" cy="560" r="72" stroke="#22d3ee"/>
-              <circle class="disc" cx="330" cy="560" r="72" fill="rgba(11,18,32,.94)"
+              <circle class="halo" cx="303.4" cy="596.6" r="72" stroke="#22d3ee"/>
+              <circle class="disc" cx="303.4" cy="596.6" r="72" fill="rgba(11,18,32,.94)"
                       stroke="#22d3ee" stroke-width="2"
                       style="filter:drop-shadow(0 0 16px rgba(34,211,238,.3))"/>
-              <circle cx="330" cy="560" r="64" fill="none" stroke="rgba(34,211,238,.22)" stroke-width="1"/>
-              <text class="num" x="330" y="543" text-anchor="middle" dominant-baseline="central">06</text>
-              <text class="nm" x="330" y="563" text-anchor="middle" dominant-baseline="central">智能体</text>
-              <text class="node-desc" x="330" y="582" text-anchor="middle" dominant-baseline="central">推理接入外部世界</text>
+              <circle cx="303.4" cy="596.6" r="64" fill="none" stroke="rgba(34,211,238,.22)" stroke-width="1"/>
+              <text class="num" x="303.4" y="581.6" text-anchor="middle" dominant-baseline="central">06</text>
+              <text class="nm" x="303.4" y="613.6" text-anchor="middle" dominant-baseline="central">智能体</text>
             </g>
 
             <g class="node" data-id="mm" tabindex="0" role="button" aria-label="多模态">
-              <circle class="halo" cx="260" cy="390" r="72" stroke="#a78bfa"/>
-              <circle class="disc" cx="260" cy="390" r="72" fill="rgba(11,18,32,.94)"
+              <circle class="halo" cx="222" cy="400" r="72" stroke="#a78bfa"/>
+              <circle class="disc" cx="222" cy="400" r="72" fill="rgba(11,18,32,.94)"
                       stroke="#a78bfa" stroke-width="2"
                       style="filter:drop-shadow(0 0 16px rgba(167,139,250,.3))"/>
-              <circle cx="260" cy="390" r="64" fill="none" stroke="rgba(167,139,250,.22)" stroke-width="1"/>
-              <text class="num" x="260" y="373" text-anchor="middle" dominant-baseline="central">07</text>
-              <text class="nm" x="260" y="393" text-anchor="middle" dominant-baseline="central">多模态</text>
-              <text class="node-desc" x="260" y="412" text-anchor="middle" dominant-baseline="central">看图听声的感官</text>
+              <circle cx="222" cy="400" r="64" fill="none" stroke="rgba(167,139,250,.22)" stroke-width="1"/>
+              <text class="num" x="222" y="385" text-anchor="middle" dominant-baseline="central">07</text>
+              <text class="nm" x="222" y="417" text-anchor="middle" dominant-baseline="central">多模态</text>
             </g>
 
             <g class="node" data-id="eval" tabindex="0" role="button" aria-label="评测安全">
-              <circle class="halo" cx="330" cy="220" r="72" stroke="#fb7185"/>
-              <circle class="disc" cx="330" cy="220" r="72" fill="rgba(11,18,32,.94)"
+              <circle class="halo" cx="303.4" cy="203.4" r="72" stroke="#fb7185"/>
+              <circle class="disc" cx="303.4" cy="203.4" r="72" fill="rgba(11,18,32,.94)"
                       stroke="#fb7185" stroke-width="2"
                       style="filter:drop-shadow(0 0 16px rgba(251,113,133,.3))"/>
-              <circle cx="330" cy="220" r="64" fill="none" stroke="rgba(251,113,133,.22)" stroke-width="1"/>
-              <text class="num" x="330" y="203" text-anchor="middle" dominant-baseline="central">08</text>
-              <text class="nm" x="330" y="223" text-anchor="middle" dominant-baseline="central">评测安全</text>
-              <text class="node-desc" x="330" y="242" text-anchor="middle" dominant-baseline="central">可信与免疫系统</text>
+              <circle cx="303.4" cy="203.4" r="64" fill="none" stroke="rgba(251,113,133,.22)" stroke-width="1"/>
+              <text class="num" x="303.4" y="188.4" text-anchor="middle" dominant-baseline="central">08</text>
+              <text class="nm" x="303.4" y="220.4" text-anchor="middle" dominant-baseline="central">评测安全</text>
             </g>
           </svg>
           <div class="stage-legend">
@@ -1890,12 +1876,43 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
             <h2>知识脉络体 <em id="treeEn">Architecture</em></h2>
             <span class="hint">系统 → 概念 → 要点，三层结构</span>
           </div>
-          <svg id="treeSvg" viewBox="0 0 1000 580" preserveAspectRatio="xMidYMid meet"
+          <svg id="treeSvg" viewBox="0 0 1000 620" preserveAspectRatio="xMidYMid meet"
                role="img" aria-label="知识脉络图"></svg>
+        </section>
+
+        <!-- 关联图例 -->
+        <section class="legend-area">
+          <h2>知识关联图例 <em>Connection Map</em></h2>
+          <p class="legend-sub">整张图里的每一条线、每一种关系都讲清楚——知识不是清单，而是有方向、有强弱的网络。</p>
+
+          <div class="legend-grid">
+            <div class="legend-card">
+              <h4><i style="border-color:#38bdf8"></i>放射线 · 基础支撑</h4>
+              <p>从核心 LLM 指向八个系统，表示「这一层为模型能力提供底层支撑」。架构与训练是地基，对齐与推理是上层，越靠近核心越不可绕过。</p>
+            </div>
+            <div class="legend-card">
+              <h4><i style="border-color:#818cf8"></i>弧线 · 协同演进</h4>
+              <p>相邻系统之间的弧线表示「二者在设计上互相牵制」。架构决定推理的显存上限，推理的需求又反过来推动架构（如 GQA、MLA）的演进。</p>
+            </div>
+            <div class="legend-card">
+              <h4><i class="dashed" style="border-color:#fbbf24"></i>虚线 · 信息流动</h4>
+              <p>表示数据或信号的方向。请求从用户进入，穿过检索、推理、工具、输出，最终回流到观测与评测——这是一条闭环，不是单向流水线。</p>
+            </div>
+            <div class="legend-card">
+              <h4><i style="border-color:#fb7185"></i>贯穿线 · 评测与安全</h4>
+              <p>评测与安全不占据某一段链路，而是横跨全部七个系统。它既是裁判，也是免疫系统：任何一层改动，都要在这里留下可比较的证据。</p>
+            </div>
+          </div>
+
+          <div class="cross-wrap">
+            <h3>跨系统概念索引</h3>
+            <p class="cross-sub">同一概念往往同时属于多个系统。点击任一系统标签，可跳转查看它在那个系统里的上下文。</p>
+            <div class="cross-list" id="crossList"></div>
+          </div>
         </section>
       </div>
 
-      <!-- 右侧详情面板：与左列底部对齐，超出滚动 -->
+      <!-- 详情面板 -->
       <aside class="panel-detail" id="panelDetail">
         <div class="p-role" style="color:#38bdf8">地基 · 决定能力上限</div>
         <div class="p-title" style="color:#38bdf8">架构骨架</div>
@@ -1909,37 +1926,6 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
         </p>
       </aside>
     </div>
-
-    <!-- 图例与跨系统索引：全宽 -->
-    <section class="legend-area">
-      <h2>知识关联图例 <em>Connection Map</em></h2>
-      <p class="legend-sub">整张图里的每一条线、每一种关系都讲清楚——知识不是清单，而是有方向、有强弱的网络。</p>
-
-      <div class="legend-grid">
-        <div class="legend-card">
-          <h4><i style="border-color:#38bdf8"></i>放射线 · 基础支撑</h4>
-          <p>从核心 LLM 指向八个系统，表示「这一层为模型能力提供底层支撑」。架构与训练是地基，对齐与推理是上层，越靠近核心越不可绕过。</p>
-        </div>
-        <div class="legend-card">
-          <h4><i style="border-color:#818cf8"></i>弧线 · 协同演进</h4>
-          <p>相邻系统之间的弧线表示「二者在设计上互相牵制」。架构决定推理的显存上限，推理的需求又反过来推动架构（如 GQA、MLA）的演进。</p>
-        </div>
-        <div class="legend-card">
-          <h4><i class="dashed" style="border-color:#fbbf24"></i>虚线 · 信息流动</h4>
-          <p>表示数据或信号的方向。请求从用户进入，穿过检索、推理、工具、输出，最终回流到观测与评测——这是一条闭环，不是单向流水线。</p>
-        </div>
-        <div class="legend-card">
-          <h4><i style="border-color:#fb7185"></i>贯穿线 · 评测与安全</h4>
-          <p>评测与安全不占据某一段链路，而是横跨全部七个系统。它既是裁判，也是免疫系统：任何一层改动，都要在这里留下可比较的证据。</p>
-        </div>
-      </div>
-
-      <div class="cross-wrap">
-        <h3>跨系统概念索引</h3>
-        <p class="cross-sub">同一概念往往同时属于多个系统。点击任一系统标签，可跳转查看它在那个系统里的上下文。</p>
-        <div class="cross-list" id="crossList"></div>
-      </div>
-    </section>
 
     <div class="jump-bar">
       <div class="jb-icon">🔗</div>
@@ -2158,7 +2144,9 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
       </aside>
     </div>
 
-    <!-- 输出与传输区域 -->
+    <!-- ==================================================
+         输出与传输区域（阶段 12-13 显示）
+    =================================================== -->
     <div class="output-zone" id="outputZone">
       <div class="oz-head">
         <span class="oz-badge" id="ozBadge">OUTPUT</span>
@@ -2861,19 +2849,18 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
     }
   }
 
-  /* ---------- 知识脉络体：圆圈更小、连线更短、内容空间更大 ---------- */
   function renderTree(sys){
     var svg = $('#treeSvg');
     if (!svg) return;
 
-    var H = 580;
-    var sysX = 95, sysY = H / 2, sysR = 58;
-    var conceptX = 320, conR = 64;
-    var keyX = 540;
+    var H = 620;
+    var sysX = 110, sysY = H / 2;
+    var conceptX = 400;
+    var keyX = 740;
 
     var n = sys.cons.length;
-    var topPad = 72;
-    var botPad = 72;
+    var topPad = 78;
+    var botPad = 78;
     var usable = H - topPad - botPad;
     var step = n > 1 ? usable / (n - 1) : 0;
 
@@ -2882,73 +2869,70 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
 
     var html = '';
 
-    /* 系统 → 概念 */
-    var sx1 = sysX + sysR;
-    var sx2 = conceptX - conR;
     for (var i = 0; i < n; i++){
-      html += '<path d="M ' + sx1 + ' ' + sysY + ' C ' + (sx1 + 50) + ' ' + sysY
-            + ', ' + (sx2 - 50) + ' ' + ys[i] + ', ' + sx2 + ' ' + ys[i] + '"'
+      var x1 = sysX + 92;
+      var x2 = conceptX - 92;
+      var cx1 = x1 + 60;
+      var cx2 = x2 - 60;
+      html += '<path d="M ' + x1 + ' ' + sysY + ' C ' + cx1 + ' ' + sysY
+            + ', ' + cx2 + ' ' + ys[i] + ', ' + x2 + ' ' + ys[i] + '"'
             + ' fill="none" stroke="' + hexA(sys.color, .42) + '" stroke-width="1.8"/>';
     }
 
-    /* 概念 → 关键点 */
-    var kx1 = conceptX + conR;
-    var kx2 = keyX - 10;
-    var kcx = (kx1 + kx2) / 2;
     for (var i = 0; i < n; i++){
       var c = sys.cons[i];
       var kn = c.ks.length;
-      var spread = 42;
+      var spread = 46;
       var start = ys[i] - ((kn - 1) * spread) / 2;
       for (var j = 0; j < kn; j++){
         var ky = start + j * spread;
+        var kx1 = conceptX + 92;
+        var kx2 = keyX - 10;
+        var kcx = (kx1 + kx2) / 2;
         html += '<path d="M ' + kx1 + ' ' + ys[i] + ' C ' + kcx + ' ' + ys[i]
               + ', ' + kcx + ' ' + ky + ', ' + kx2 + ' ' + ky + '"'
               + ' fill="none" stroke="' + hexA(sys.color, .26) + '" stroke-width="1.2"/>';
       }
     }
 
-    /* 系统节点 */
-    html += '<circle cx="' + sysX + '" cy="' + sysY + '" r="' + sysR + '"'
+    html += '<circle cx="' + sysX + '" cy="' + sysY + '" r="72"'
           + ' fill="' + hexA(sys.color, .16) + '" stroke="' + sys.color + '" stroke-width="2"/>'
-          + '<circle cx="' + sysX + '" cy="' + sysY + '" r="' + (sysR - 8) + '" fill="rgba(11,18,32,.9)"'
+          + '<circle cx="' + sysX + '" cy="' + sysY + '" r="62" fill="rgba(11,18,32,.9)"'
           + ' stroke="' + hexA(sys.color, .4) + '" stroke-width="1"/>'
-          + '<text x="' + sysX + '" y="' + (sysY - 8) + '" text-anchor="middle"'
-          + ' dominant-baseline="central" font-size="13" font-weight="800"'
+          + '<text x="' + sysX + '" y="' + (sysY - 9) + '" text-anchor="middle"'
+          + ' dominant-baseline="central" font-size="14" font-weight="800"'
           + ' fill="' + hexA(sys.color, .85) + '" letter-spacing="1">' + sys.num + '</text>'
-          + '<text x="' + sysX + '" y="' + (sysY + 13) + '" text-anchor="middle"'
-          + ' dominant-baseline="central" font-size="13" font-weight="750"'
+          + '<text x="' + sysX + '" y="' + (sysY + 14) + '" text-anchor="middle"'
+          + ' dominant-baseline="central" font-size="14" font-weight="750"'
           + ' fill="#eaf2ff">' + esc(sys.name) + '</text>';
 
-    /* 概念节点 */
     for (var i = 0; i < n; i++){
       var c = sys.cons[i];
-      html += '<circle cx="' + conceptX + '" cy="' + ys[i] + '" r="' + conR + '"'
+      html += '<circle cx="' + conceptX + '" cy="' + ys[i] + '" r="84"'
             + ' fill="rgba(11,18,32,.94)" stroke="' + sys.color + '" stroke-width="1.6"/>'
-            + '<text x="' + (conceptX - 50) + '" y="' + (ys[i] - 38) + '"'
-            + ' text-anchor="start" font-size="11" font-weight="800"'
+            + '<text x="' + (conceptX - 68) + '" y="' + (ys[i] - 52) + '"'
+            + ' text-anchor="start" font-size="12" font-weight="800"'
             + ' fill="' + hexA(sys.color, .5) + '">0' + (i + 1) + '</text>'
             + '<text x="' + conceptX + '" y="' + ys[i] + '"'
             + ' text-anchor="middle" dominant-baseline="central"'
-            + ' font-size="13" font-weight="750" fill="#eaf2ff">'
+            + ' font-size="14" font-weight="750" fill="#eaf2ff">'
             + esc(c.t) + '</text>';
     }
 
-    /* 关键点 */
     for (var i = 0; i < n; i++){
       var c = sys.cons[i];
       var kn = c.ks.length;
-      var spread = 42;
+      var spread = 46;
       var start = ys[i] - ((kn - 1) * spread) / 2;
       for (var j = 0; j < kn; j++){
         var ky = start + j * spread;
         var kk = c.ks[j];
         var idx = kk.indexOf('：');
         var label = idx > 0 ? kk.slice(0, idx) : kk;
-        if (label.length > 14) label = label.slice(0, 13) + '…';
-        html += '<circle cx="' + keyX + '" cy="' + ky + '" r="3.6"'
+        if (label.length > 12) label = label.slice(0, 11) + '…';
+        html += '<circle cx="' + keyX + '" cy="' + ky + '" r="4"'
               + ' fill="' + hexA(sys.color, .7) + '"/>'
-              + '<text x="' + (keyX + 13) + '" y="' + ky + '"'
+              + '<text x="' + (keyX + 14) + '" y="' + ky + '"'
               + ' text-anchor="start" dominant-baseline="central"'
               + ' font-size="12" fill="#9fb0c9">' + esc(label) + '</text>';
       }
@@ -3685,6 +3669,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   var CASE_TOKENS = ['写','一段','Fast','API','的','接口','代码'];
   var CASE_IDS    = [9182, 4471, 12087, 3391, 1103, 8823, 5521];
 
+  /* 阶段：0 待机 · 1 输入 · 2 分词 · 3 嵌入 · 4-11 第1~8层 · 12 解码 · 13 传输与输出 */
   var TOTAL_PHASES = 13;
 
   function layerDesc(i){
@@ -3806,6 +3791,8 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
   function $(id){ return document.getElementById(id); }
   function mSleep(ms){ return new Promise(function(r){ setTimeout(r, ms); }); }
 
+  /* ---------- 构建 DOM ---------- */
+
   function buildBuilding(){
     var el = $('mBuilding');
     if (!el) return;
@@ -3882,6 +3869,8 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
     }
     el.innerHTML = html;
   }
+
+  /* ---------- 渲染 ---------- */
 
   function vecHeight(i, step){
     var base = 0.32 + 0.6 * Math.abs(Math.sin(i * 1.87 + 2.1));
@@ -4042,6 +4031,8 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
     }
   }
 
+  /* ---------- 输出与传输（阶段 12-13） ---------- */
+
   var FASTAPI_CODE_HTML =
       '<span class="c"># 由模型逐 Token 生成，通过 SSE 推送</span>\n' +
       '<span class="k">from</span> fastapi <span class="k">import</span> FastAPI\n' +
@@ -4090,6 +4081,7 @@ details.concept[open] > summary::after{transform:rotate(180deg)}
       return;
     }
 
+    /* phase >= 13 */
     if (badge) badge.textContent = 'TRANSPORT';
     if (title) title.textContent = '传输与输出 · 从模型到用户';
     if (tech) tech.textContent = 'SSE · Server-Sent Events';
